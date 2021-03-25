@@ -9,29 +9,25 @@ router.get('/', function(req, res, next) {
 router.get('/home', function(req, res, next) {
   res.render('index', { title: 'Home', page: 'home' });
 });
-/* GET about page - about route*/
+/* GET home page - home route*/
 router.get('/about', function(req, res, next) {
   res.render('index', { title: 'About', page: 'about' });
 });
-/* GET projects page - projects route*/
+/* GET home page - home route*/
 router.get('/projects', function(req, res, next) {
   res.render('index', { title: 'Projects', page: 'projects' });
 });
-/* GET services page - services route*/
+/* GET home page - home route*/
 router.get('/services', function(req, res, next) {
   res.render('index', { title: 'Services', page: 'services' });
 });
-/* GET contact page - contact route*/
+/* GET home page - home route*/
 router.get('/contact', function(req, res, next) {
   res.render('index', { title: 'Contact', page: 'contact' });
 });
-/* GET login page - login route*/
+/* GET home page - home route*/
 router.get('/login', function(req, res, next) {
   res.render('index', { title: 'Login', page: 'login' });
-});
-/* GET register page - register route*/
-router.get('/register', function(req, res, next) {
-  res.render('index', { title: 'Register', page: 'register' });
 });
 
 module.exports = router;
