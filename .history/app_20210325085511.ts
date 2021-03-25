@@ -6,7 +6,7 @@ import cookieParser = require('cookie-parser');
 import logger = require('morgan');
 
 // configuration
-let indexRouter = require('./Routes/index');
+const indexRouter = require('./Routes/index');
 const app = express();
 
 // view engine setup
@@ -35,7 +35,7 @@ app.use(function(err:createError.HttpError, req:express.Request, res:express.Res
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error', { message: message, error: error, tile: 'ERROR', page: 'error' });
+  res.render('error', { message: message, error: error, title: 'ERROR', page: 'error' });
 });
 
 module.exports = app;

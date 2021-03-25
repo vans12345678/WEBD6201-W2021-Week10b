@@ -5,7 +5,7 @@ const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
-const indexRouter = require('./Routes/index');
+let indexRouter = require('./Routes/index');
 const app = express();
 app.set('views', path.join(__dirname, 'Views'));
 app.set('view engine', 'ejs');
@@ -23,7 +23,7 @@ app.use(function (err, req, res, next) {
     let message = err.message;
     let error = req.app.get('env') === 'development' ? err : {};
     res.status(err.status || 500);
-    res.render('error', { message: message, error: error });
+    res.render('error', { message: message, error: error, tile: 'ERROR', page: 'error' });
 });
 module.exports = app;
 //# sourceMappingURL=app.js.map

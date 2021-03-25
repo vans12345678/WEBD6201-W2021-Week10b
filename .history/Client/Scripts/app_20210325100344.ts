@@ -147,6 +147,7 @@ namespace core
             }
           }
 
+          //loadLink("contact"); // reload contact page
           location.href = '/contact';
         });
     }
@@ -188,7 +189,7 @@ namespace core
 
         contactList.innerHTML = data;
 
-        $("button.edit").on("click", function(){
+        $("button.edit").on("click", funcstion(){
           location.href = '/edit/' + $(this).val().toString();
          });
 
@@ -336,10 +337,6 @@ namespace core
       }
     }
 
-    function performLogout():void{
-      sessionStorage.clear();
-      location.href = "login";
-    }
     /**
      * This is the entry point for our program
      *
@@ -365,9 +362,6 @@ namespace core
             break;
           case 'login':
             displayLogin();
-            break;
-          case 'logout':
-            performLogout();
             break;
         }
     }

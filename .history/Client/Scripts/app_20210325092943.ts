@@ -147,6 +147,7 @@ namespace core
             }
           }
 
+          //loadLink("contact"); // reload contact page
           location.href = '/contact';
         });
     }
@@ -189,7 +190,8 @@ namespace core
         contactList.innerHTML = data;
 
         $("button.edit").on("click", function(){
-          location.href = '/edit/' + $(this).val().toString();
+          linkData = $(this).val().toString();
+          location.href = '/edit';
          });
 
          $("button.delete").on("click", function(){
@@ -210,7 +212,7 @@ namespace core
 
     function displayEdit(): void
     {
-      let key = $("body")[0].dataset.contactid;
+      let key = linkData;
 
       let contact = new core.Contact();
 
@@ -326,6 +328,49 @@ namespace core
       });
     }
 
+
+
+    // function toggleLogin(): void
+    // {
+    //   let contactListLink = $("#contactListLink")[0]; // makes a reference to the contact-list link
+
+    //   // if user is logged in
+    //   if(sessionStorage.getItem("user"))
+    //   { //Logged in -----------------------
+
+    //     // swap out the login link for logout
+    //     $("#loginListItem").html(
+    //     `<a id="logout" class="nav-link" aria-current="page"><i class="fas fa-sign-out-alt"></i> Logout</a>`
+    //     );
+
+    //     if(!contactListLink) // checks if contact-list link is not already present
+    //     {
+    //       // add contact-list link
+    //       $(`<li id="contactListLink" class="nav-item">
+    //       <a id="contact-list" class="nav-link" aria-current="page"><i class="fas fa-users fa-lg"></i> Contact List</a>
+    //     </li>`).insertBefore("#loginListItem");
+    //     }
+    //   }
+    //   else
+    //   { // Logged out-----------------------
+
+    //     // swap out the login link for logout
+    //     $("#loginListItem").html(
+    //       `<a id="login" class="nav-link" aria-current="page"><i class="fas fa-sign-in-alt"></i> Login</a>`
+    //       );
+          
+    //     if(contactListLink) // checks if contact-list link is present
+    //     {
+    //       // remove contact-list link
+    //       $("#contactListLink").remove();
+    //     }
+
+    //   }
+
+    //   addLinkEvents();
+    //   highlightActiveLink(router.ActiveLink);
+    // }
+
     function authGuard():void
     {
       if(!sessionStorage.getItem("user"))
@@ -336,10 +381,6 @@ namespace core
       }
     }
 
-    function performLogout():void{
-      sessionStorage.clear();
-      location.href = "login";
-    }
     /**
      * This is the entry point for our program
      *
@@ -365,9 +406,6 @@ namespace core
             break;
           case 'login':
             displayLogin();
-            break;
-          case 'logout':
-            performLogout();
             break;
         }
     }

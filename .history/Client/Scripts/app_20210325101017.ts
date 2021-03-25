@@ -147,6 +147,7 @@ namespace core
             }
           }
 
+          //loadLink("contact"); // reload contact page
           location.href = '/contact';
         });
     }
